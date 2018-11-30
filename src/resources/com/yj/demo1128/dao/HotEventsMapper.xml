@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.yj.demo1128.dao.HotEventsMapper">
+    <!-- 模糊查询分页-->
+    <select id="findAllByPageBean" resultType="com.yj.demo1128.vo.Hotevents">
+        select * from hotevents where 1=1
+         <if test="keyWord != null">
+            and keyWord like CONCAT('%',
+             #{keyWord},'%')
+         </if>
+      	limit #{pageBean.startRow} , #{pageBean.pageSize}
+    </select>
+    <!--查询总数据量 -->
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from hotevents where 1=1
+        <if test="keyWord != null">
+           and keyWord like CONCAT('%',
+            #{keyWord},'%')
+        </if>
+    </select>
+</mapper>

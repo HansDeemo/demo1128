@@ -8,14 +8,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/contex/spring-contex.xsd
+       http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
     <!-- 1.扫描包 -->
-<contex:component-scan base-package="com.yj.demo1128"></contex:component-scan>
+    <contex:component-scan base-package="com.yj.demo1128"></contex:component-scan>
     <!-- 2.配置两个driven,使事务的注解有效 -->
     <tx:annotation-driven transaction-manager="txManager"/>
     <!-- 3.使mvc的注解有效 -->
